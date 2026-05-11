@@ -13,11 +13,18 @@ import { CommonModule } from '@angular/common';
   imports: [IonHeader, IonToolbar, IonTitle, IonContent, IonFab, IonFabButton, IonIcon, IonGrid, IonRow, IonCol, CommonModule, IonImg],
 })
 export class Tab1Page {
+  //Constructor de la clase
   constructor(public fotoService: FotoService) {
     addIcons({ library, imageOutline, camera });
   }
 
+  //Metodo que agrega una foto a la galeria
   addPhotoToGallery() {
     this.fotoService.addNewToGallery()
+  }
+
+  //Metodo que carga las fotos guardadas al iniciar la pagina
+  async ngOnInit(){
+    await this.fotoService.loadSaved()
   }
 }

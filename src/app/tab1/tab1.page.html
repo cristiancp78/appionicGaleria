@@ -8,14 +8,17 @@
 
 <ion-content [fullscreen]="true">
 
+  <!-- Grid para mostrar las fotos -->
   <ion-grid>
     <ion-row>
+      <!-- Ciclo que recorre el arreglo de fotos y muestra cada una en una columna -->
       <ion-col size="6" *ngFor="let foto of fotoService.fotos; index as position">
         <ion-img [src]="foto.webviewPath"></ion-img>
       </ion-col>
     </ion-row>
   </ion-grid>
 
+  <!-- Boton flotante para agregar fotos -->
   <ion-fab vertical="bottom" horizontal="center" slot="fixed">
     <ion-fab-button (click)="addPhotoToGallery()">
       <ion-icon name="camera"></ion-icon>
